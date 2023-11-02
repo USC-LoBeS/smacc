@@ -38,7 +38,12 @@ In run_CC.sh file:
 * Create a text file with all the subject id's of the MR scans and put the path to the text file on line 11.
 * Add the model directory on line 14.
 * Set the output path folder where all the results would be generated on line 17.
-* Add modality of the images to be processed (T1/T2/FLAIR) on line 23
+* Add modality of the images to be processed (T1/T2/FLAIR) on line 24.
+
+To run this tool:
+```bash
+sh run_CC.sh
+```
 The final output will be "metrics_Final.csv" in the output folder which will have all the metrics and a column "QC label" indicating whether the segmentations were accurate(0)/fail(1).
 
 
