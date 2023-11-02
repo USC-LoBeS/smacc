@@ -40,12 +40,29 @@ In run_CC.sh file:
 * Set the output path folder where all the results would be generated on line 17.
 * Add modality of the images to be processed (T1/T2/FLAIR) on line 24.
 
-To run this tool:
+After the changes are made to the .sh file, run this tool using:
 ```bash
-sh run_CC.sh
+./run_CC.sh
 ```
 The final output will be "metrics_Final.csv" in the output folder which will have all the metrics and a column "QC label" indicating whether the segmentations were accurate(0)/fail(1).
 
+
+## Demo:
+* To run this tool with the given examples (T1's) in the input folder:
+	* Get the python path for the virtual environment using the following commands in the terminal:
+	```bash
+	conda activate smacc
+	which python
+	conda deactivate
+	```
+   	* The path would look something like this:
+	```bash
+	/Users/User123/anaconda3/envs/smacc/bin
+	```
+ 	 * Add this python path to the run_CC.sh file and run the .sh file using:
+  	```bash
+	./run_CC.sh
+	```
 
 #### If you use this code, please cite the following paper:
 ##### Shruti P. Gadewar, Elnaz Nourollahimoghadam, Ravi R. Bhatt, Abhinaav Ramesh, Shayan Javid, Iyad Ba Gari, Alyssa H. Zhu, Sophia Thomopoulos, Paul M. Thompson, and Neda Jahanshad. "A Comprehensive Corpus Callosum Segmentation Tool for Detecting Callosal Abnormalities and Genetic Associations from Multi Contrast MRIs." ArXiv (2023): arXiv-2305. (https://arxiv.org/abs/2305.01107)
