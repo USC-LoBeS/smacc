@@ -3,11 +3,9 @@
 
 This automated pipeline can be used for accurate Corpus Callosum (CC) segmentation across multiple MR modalities (T1, T2 and FLAIR) and extract a variety of features to describe the shape of the CC. We also include an automatic quality control function to detect poor segmentations using Machine Learning.
 
-
+<p align="center">
 <img width="689" alt="workflow" src="https://github.com/USC-LoBeS/smacc/assets/39843804/b9b38025-c391-4da4-8e86-280068447d0b">
-
-
-
+</p>
 
 ## How to use the tool:
 * Clone the github directory using:
