@@ -1,5 +1,5 @@
 # SMACC-MRI: 
-## Segmentation, Metrics extraction, Automatic quality assessment of the midsagittal Corpus Callosum
+## Segmentation, Measure and Auto QC the midsagittal Corpus Callosum
 
 This automated pipeline can be used for accurate Corpus Callosum (CC) segmentation across multiple MR modalities (T1, T2 and FLAIR) and extract a variety of features to describe the shape of the CC. We also include an automatic quality control function to detect poor segmentations using Machine Learning.
 
