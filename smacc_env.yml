@@ -159,4 +159,3 @@ dependencies:
     - threadpoolctl==3.1.0
     - tifffile==2021.11.2
     - xgboost==1.6.2
-prefix: /ifs/loni/faculty/njahansh/nerds/shruti/software/python/anaconda3/envs/smacc
