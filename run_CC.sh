@@ -2,7 +2,7 @@
 #$ -S /bin/bash
 
 # Export python environment
-export PATH=/ifs/loni/faculty/njahansh/nerds/shruti/software/python/anaconda3/envs/smacc/bin:$PATH
+export PATH=./anaconda3/envs/smacc/bin:$PATH
 
 SCRIPT_DIR="$(pwd)"
 # Input directory of T1
