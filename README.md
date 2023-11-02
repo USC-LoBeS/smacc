@@ -10,8 +10,11 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 
 
 ## How to use the tool:
-* Clone the github directory using: git clone https://github.com/USC-LoBeS/smacc.git
-
+* Clone the github directory using:
+	```bash
+	git clone https://github.com/USC-LoBeS/smacc.git
+	```
+ 
 ## Virtual environment:
 * Create a virtual environment using the requirments.txt file:
 	* For pip users:
