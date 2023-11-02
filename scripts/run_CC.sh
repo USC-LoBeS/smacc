@@ -5,16 +5,16 @@
 export PATH=./Anaconda3/envs/smacc-env/bin:$PATH
 
 # Input directory of T1
-dirI=./CC/input
+dirI=../input
 
 # Subject list for T1's to be processed
-dirS=./CC/subject_list.txt
+dirS=../subject_list.txt
 
 # Model folder path where the weights for the UNet and AutoQC model is stored
-dirM=./CC/model
+dirM=../model
 
 # Output directory 
-dirO=./CC/output
+dirO=../output
 mkdir -p ${dirO}
 mkdir -p ${dirO}/segmentation
 mkdir -p ${dirO}/metrics
@@ -26,7 +26,7 @@ modality=T1
 #########################################################################################################################
 ########## DO NOT CHANGE THIS PATH ########## 
 # Python Script path 
-script=./CC/scripts
+script=./scripts
 cd ${script}
 
 #########################################################################################################################
