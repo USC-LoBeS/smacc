@@ -16,18 +16,19 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 	```
  
 ## Virtual environment:
-* Create a virtual environment using the requirments.txt file:
-	* For pip users:
-	```bash
-	pip install -r requirements.txt
-	```
+* Navigate to the "smacc" folder and then create a virtual environment:
+	* either using the requirments.txt file:
+		* For pip users:
+		```bash
+		pip install -r requirements.txt
+		```
+	
+		* For conda users:
+		```bash
+		conda create --name <env_name> --file requirements.txt
+		```
 
-	* For conda users:
-	```bash
-	conda create --name <env_name> --file requirements.txt
-	```
-
-* If you want to create a virtual environment using .yml file:
+	* OR using the smacc_env.yml file:
 	```bash
 	conda env create -f smacc_env.yml
 	```
