@@ -1,20 +1,22 @@
-#!/usr/bin/env python
-import sys
-from subprocess import check_output
-import argparse
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb 2 2024
+
+@author: shruti
+"""
+
 import os
-from glob import glob
-import numpy as np
-import nibabel as nib
-from skimage.morphology import skeletonize, thin, binary_dilation
-from skimage.measure import regionprops, label, find_contours
-import cv2
-from skimage.transform import rotate
-from scipy.optimize import leastsq
-import pandas as pd
-import json
 import math
+import numpy as np
+import pandas as pd
+import nibabel as nib
+
+import cv2
 import skimage.measure
+from skimage.morphology import thin
+from skimage.transform import rotate
+from skimage.measure import regionprops, label, find_contours
 
 import warnings
 warnings.simplefilter("ignore")
@@ -89,7 +91,8 @@ def perimeter_calc(corcal):
     gray = np.uint8(corcal * 255)
 
     ret, thresh = cv2.threshold(gray, 127, 255, 0)
-    _, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # _, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)   # opencv 3.4.2
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)        # opencv 4.7.0.72
     cnt_len = cv2.arcLength(contours[0], True)
     return cnt_len
 
@@ -183,7 +186,6 @@ def calc_max_ab(skeleton):
         y2 = y_[-1]
         x1 = x_[0]
         x2 = x_[-1]
-        xmid_cc, ymid_cc = (x1+x2)/2, (y1+y2)/2
         m=(y2-y1)/(x2-x1)
 
         # Get only right side points
@@ -210,7 +212,6 @@ def calc_max_ab(skeleton):
         max_ind = np.argmax(dist)
         peak_a_dist = euclidean_dist(x1,coords[max_ind][0],y1,coords[max_ind][1])
         peak_b_dist = max(dist)
-        a = euclidean_dist(x1,xmid_cc,y1,ymid_cc)
 
         return peak_a_dist, peak_b_dist
     except:
@@ -242,14 +243,12 @@ def count_connected_components(image):
     return count
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--mask", help="Mask image")
-    parser.add_argument("--output", help="Output directory")
-    args = parser.parse_args()
+def get_shape_metrics(inp, subj, out):
+    # create output directory
+    os.makedirs(out, exist_ok=True)
 
-    ### Preprocessing
-    image  = extract_cc(args.mask)
+    ## Preprocessing
+    image  = extract_cc(inp + "/" + subj + ".nii.gz")
     thr001 = (image > 0.001).astype(int)
     labeled = label(thr001)
     
@@ -267,7 +266,7 @@ if __name__ == "__main__":
     rotate_by = np.sign(orientation)*(90 - np.abs(orientation) * 180 / np.pi)
     rotated = rotate(cc, angle=rotate_by, order=0, preserve_range=True)
 
-    ### Subregion Segmentation
+    ## Subregion Segmentation
     y_min = np.min(np.where(rotated)[1])
     y_max = np.max(np.where(rotated)[1])
     straight_length = y_max - y_min
@@ -309,7 +308,7 @@ if __name__ == "__main__":
     skel_jhu3 = skeleton * rotated_jhu3
 
 
-    ### Metric Extraction
+    ## Metric Extraction
     mdict = {}
 
     # Whole region metrics
@@ -367,4 +366,4 @@ if __name__ == "__main__":
     
     # Write Output Spreadsheet
     metrics = pd.DataFrame.from_dict(mdict, orient='index')
-    metrics.to_csv(args.output, index_label="Measures", header=['Value'])
+    metrics.to_csv(out + "/" + subj + ".csv", index_label="Measures", header=['Value'])
