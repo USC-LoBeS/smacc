@@ -8,13 +8,13 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 </p>
 
 ## How to use the tool:
-* Clone the github directory using:
+Clone the github directory using:
 	```bash
 	git clone https://github.com/USC-LoBeS/smacc.git
 	```
  
 ## Virtual environment:
-* Navigate to the "smacc" folder and then create a virtual environment using the requirements.txt file:
+Navigate to the "smacc" folder and then create a virtual environment using the requirements.txt file:
 	```bash
 	conda create -n smacc python==3.11 -y
 	conda activate smacc
@@ -23,7 +23,7 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 	```
 
 ## Input Preprocessing:
-* All the MR images should be registred to MNI 1mm template(182 X 218 X 182) with 6dof. You can use the template provided in the "model" folder on github. You can use the FSL's flirt command for linear registration:
+All the MR images should be registred to MNI 1mm template(182 X 218 X 182) with 6dof. You can use the template provided in the "model" folder on github. You can use the FSL's flirt command for linear registration:
 	```bash
 	flirt -in ${inpdir}/${subj}.nii.gz \
 	 	-ref ${MNI_1mm_template} \
