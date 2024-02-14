@@ -34,9 +34,9 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 	```
 
 ## Test the tool:
-	```bash
+```bash
 	smacc -f subject_list.txt -o test_smacc -m t1
-	```
+```
 -f : Text file with a list of full paths to the niftis to be processed and names to save the outputs for each subject.
 -o : Output directory
 -m : Modality of the image to be processed
