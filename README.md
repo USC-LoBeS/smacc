@@ -35,7 +35,7 @@ All the MR images should be registred to MNI 1mm template(182 X 218 X 182) with 
 
 ## Test the tool:
 ```bash
-smacc -f ./subject_list.txt -o ./test_smacc -m t1
+smacc -f ./subject_list.txt -o ./smacc_output -m t1
 ```
 -f : Text file with a list of absolute paths to the niftis to be processed and names to save the outputs for each subject. Check example text file "subject_list.txt" provided. <br />
 -o : Absolute path of output folder <br />
