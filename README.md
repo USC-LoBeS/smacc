@@ -44,6 +44,6 @@ smacc -f subject_list.txt -o test_smacc -m t1
 The final output is a csv which will contain all the extracted shape metrics and a column "QC label" indicating whether the segmentations were accurate(0)/fail(1) if the QC flag is provided.
 
 
-#### If you use this code, please cite the following paper:
+**## If you use this code, please cite the following paper:**
 ##### Gadewar SP, Nourollahimoghadam E, Bhatt RR, Ramesh A, Javid S, Gari IB, Zhu AH, Thomopoulos S, Thompson PM, Jahanshad N. A Comprehensive Corpus Callosum Segmentation Tool for Detecting Callosal Abnormalities and Genetic Associations from Multi Contrast MRIs. Annu Int Conf IEEE Eng Med Biol Soc. 2023 Jul;2023:1-4. doi: 10.1109/EMBC40787.2023.10340442. PMID: 38083493.
 
