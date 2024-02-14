@@ -35,12 +35,12 @@ This automated pipeline can be used for accurate Corpus Callosum (CC) segmentati
 
 ## Test the tool:
 ```bash
-	smacc -f subject_list.txt -o test_smacc -m t1
+smacc -f subject_list.txt -o test_smacc -m t1
 ```
--f : Text file with a list of full paths to the niftis to be processed and names to save the outputs for each subject.
--o : Output directory
--m : Modality of the image to be processed
--q : Optional flag to perform Automated QC on the segmentations
+-f : Text file with a list of absolute paths to the niftis to be processed and names to save the outputs for each subject. Check example text file provided here. <br />
+-o : Output directory <br />
+-m : Modality of the image to be processed (t1/t2/flair) <br />
+-q : Optional flag to perform Automated QC on the segmentations. <br />
 The final output is a csv which will contain all the extracted shape metrics and a column "QC label" indicating whether the segmentations were accurate(0)/fail(1) if the QC flag is provided.
 
 
