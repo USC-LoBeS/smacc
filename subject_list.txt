@@ -1,0 +1,3 @@
+./input/abcd1234.nii.gz abcd
+./input/subjectABC.nii.gz ABC
+./input/xyz_45.nii.gz xyz

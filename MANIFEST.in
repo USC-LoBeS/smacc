@@ -1,0 +1,6 @@
+include smacc/model/FLAIROnly_Final.h5
+include smacc/model/MNI152_T1_1mm_brain.nii.gz 
+include smacc/model/MNI152_T1_1mm.nii.gz 
+include smacc/model/model_qc.sav 
+include smacc/model/T1Only_Final.h5 
+include smacc/model/T2Only_Final.h5
