@@ -1,0 +1,1 @@
+./input/xyz_123.nii.gz xyz
